@@ -15,11 +15,13 @@ public class Aseguradora implements Serializable {
     @JoinColumn (name="id_Plan")// Para designar el nombre de la llave foránea
     private  Plan plan;
     @JoinColumn (name="id_CentroVeterinario")// Para designar el nombre de la llave foránea
-    @ManyToOne
-    private CentroVeterinario centroVeterinario;
+
 
     @OneToMany (mappedBy = "aseguradora")
     private List<EmpleadoSafePet> empleadoSafePetList;
+
+    @OneToMany (mappedBy = "Aseguradora")
+    private List<CentroVeterinario> centroVeterinarios;
 
     public String getId() {return id;}
 

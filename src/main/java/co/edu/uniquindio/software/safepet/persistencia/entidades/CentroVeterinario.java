@@ -1,9 +1,6 @@
 package co.edu.uniquindio.software.safepet.persistencia.entidades;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
 import java.util.Objects;
@@ -17,11 +14,11 @@ public class CentroVeterinario implements Serializable {
     private String nombre;
     @Column(length = 50)
     private String contrasenia;
+    @ManyToOne
+    @JoinColumn (name="id_Aseguradora")// Para designar el nombre de la llave foránea
+    private Aseguradora aseguradora;
 
 
-
-    @OneToMany (mappedBy = "CentroVeterinario")
-    private List<Aseguradora> aseguradoras;
 
     public String getId() {return id;}
 
