@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head></h:head>
+<f:view>
+
+    <p:dialog id="dialog" widgetVar="manageEntityDialog">
+        <p:outputPanel id="manage-entity-content" class="ui-fluid">
+            <p:outputPanel rendered="#{not empty libroBean.selectedEntity}">
+                <div class="p-field">
+                    <p:outputLabel for="isbn">ISBN</p:outputLabel>
+                    <p:inputText id="isbn" value="#{libroBean.selectedEntity.isbn}" required="true" readonly="true"  />
+                </div>
+                <div class="p-field">
+                    <p:outputLabel for="titulo">Título</p:outputLabel>
+                    <p:inputText id="titulo" value="#{libroBean.selectedEntity.titulo}" readonly="true" />
+                </div>
+            </p:outputPanel>
+            <p:outputPanel rendered="#{not empty libroBean.selectedEntity}">
+                <div class="p-field">
+                    <p:outputLabel for="usuario">Usuario</p:outputLabel>
+                    <p:inputText id="usuario" value="#{reseniaBean.selectedEntity.username}" required="true" />
+                </div>
+                <div class="p-field">
+                    <p:outputLabel for="texto">Texto</p:outputLabel>
+                    <p:inputTextarea id="texto" value="#{reseniaBean.selectedEntity.texto}" />
+                </div>
+                <div class="p-field">
+                    <p:commandButton value="Guardar" icon="pi pi-check" actionListener="#{reseniaBean.save}"
+                                     update="manage-entity-content" process="manage-entity-content @this">
+<!--                        <f:setPropertyActionListener value="#{libroBean.selectedEntity}" target="#{reseniaBean.selectedEntity.libro}"/>
+                        <p:resetInput target=":form:manage-entity-content"/> -->
+                    </p:commandButton>
+                </div>
+
+            </p:outputPanel>
+        </p:outputPanel>
+
+
+
+        <f:facet name="footer">
+            <p:commandButton value="Guardar" icon="pi pi-check" actionListener="#{libroBean.save}"
+                             update="manage-entity-content" process="manage-entity-content @this"/>
+            <p:commandButton value="Cancel" icon="pi pi-times" onclick="PF('manageEntityDialog').hide()"
+                             class="ui-button-secondary"/>
+        </f:facet>
+    </p:dialog>
+</f:view>
+</html>

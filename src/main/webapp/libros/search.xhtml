@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head></h:head>
+<f:view>
+    <h:form id="form">
+        <p:growl id="messages" />
+
+        <p:dataTable id="dt-entities" widgetVar="dtEntities" var="entity" value="#{libroBean.entities}"
+                     reflow="true" styleClass="entity-table"
+                     selection="#{libroBean.selectedEntities}" rowKey="#{entity.dny}" paginator="true"
+                     rows="10" rowSelectMode="add" paginatorPosition="bottom">
+            <f:facet name="header">
+                <div class="entity-table-header">
+                    <span style="font-weight: bold">LIBROS</span>
+
+                    <span class="filter-container ui-input-icon-left">
+                        <i class="pi pi-search"></i>
+                        <p:inputText id="globalFilter" onkeyup="PF('dtEntities').filter()" placeholder="Buscar"/>
+                    </span>
+                </div>
+            </f:facet>
+            <!-- COLUMNAS DE LOS ATRIBUTOS QUE DESEO MOSTRAR EN LA TABLA -->
+            <p:column headerText="ISBN" sortBy="#{entity.isbn}" filterBy="#{entity.isbn}">
+                <h:outputText value="#{entity.isbn}"/>
+            </p:column>
+            <p:column headerText="Título" sortBy="#{entity.titulo}" filterBy="#{entity.titulo}">
+                <h:outputText value="#{entity.titulo}"/>
+            </p:column>
+
+            <p:column exportable="false">
+                <p:commandButton icon="pi pi-folder-open" update=":form:manage-entity-content"
+                                 oncomplete="PF('manageEntityDialog').show()"
+                                 styleClass="edit-button rounded-button ui-button-success" process="@this">
+                    <f:setPropertyActionListener value="#{entity}" target="#{libroBean.selectedEntity}"/>
+                    <p:resetInput target=":form:manage-entity-content"/>
+                </p:commandButton>
+                <p:commandButton class="ui-button-warning rounded-button" icon="pi pi-trash" process="@this"
+                                 oncomplete="PF('deleteEntityDialog').show()">
+                    <f:setPropertyActionListener value="#{entity}" target="#{libroBean.selectedEntity}"/>
+                </p:commandButton>
+            </p:column>
+
+        </p:dataTable>
+        <ui:include src="__view.xhtml" />
+    </h:form>
+</f:view>
+</html>
