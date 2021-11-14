@@ -12,10 +12,9 @@ public class Afiliado implements Serializable {
     private String id;
     @Column(length = 40)
     private String nombre;
-    @OneToMany(mappedBy = "afiliados")
+    @OneToMany(mappedBy = "afiliado")
     private List<Plan> Planes;
-    @ManyToMany(mappedBy = "afiliados")
-    private List<Telefono> telefonos;
+    private String telefono;
 
     public String getId() {
         return id;
@@ -33,12 +32,20 @@ public class Afiliado implements Serializable {
         this.nombre = nombre;
     }
 
-    public List<Telefono> getTelefonos() {
-        return telefonos;
+    public List<Plan> getPlanes() {
+        return Planes;
     }
 
-    public void seTelefonos(List<Telefono> telefonos) {
-        this.telefonos = telefonos;
+    public void setPlanes(List<Plan> planes) {
+        Planes = planes;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
     @Override
