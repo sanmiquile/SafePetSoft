@@ -1,4 +1,4 @@
-package co.edu.uniquindio.software.libreria.gui.beans;
+package co.edu.uniquindio.software.safepet.gui.beans;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;

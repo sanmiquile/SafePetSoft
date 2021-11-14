@@ -1,4 +1,4 @@
-package co.edu.uniquindio.software.libreria.config;
+package co.edu.uniquindio.software.safepet.config;
 
 
 import javax.annotation.sql.DataSourceDefinition;

@@ -1,6 +1,6 @@
-package co.edu.uniquindio.software.libreria.logica;
+package co.edu.uniquindio.software.safepet.logica;
 
-import co.edu.uniquindio.software.libreria.persistencia.entidades.Libro;
+import co.edu.uniquindio.software.safepet.persistencia.entidades.Libro;
 
 import javax.ejb.Stateless;
 

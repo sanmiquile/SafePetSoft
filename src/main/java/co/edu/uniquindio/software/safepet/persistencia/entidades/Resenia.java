@@ -1,4 +1,4 @@
-package co.edu.uniquindio.software.libreria.persistencia.entidades;
+package co.edu.uniquindio.software.safepet.persistencia.entidades;
 
 import javax.persistence.*;
 import java.io.Serializable;

@@ -1,6 +1,6 @@
-package co.edu.uniquindio.software.libreria.gui.beans;
+package co.edu.uniquindio.software.safepet.gui.beans;
 
-import co.edu.uniquindio.software.libreria.logica.GenericBO;
+import co.edu.uniquindio.software.safepet.logica.GenericBO;
 import org.primefaces.PrimeFaces;
 
 public class PrimeFacesCrudBean<E,K,T extends GenericBO<E,K>> extends GenericEntityBean<E,K,T>{

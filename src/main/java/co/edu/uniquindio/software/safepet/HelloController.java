@@ -1,4 +1,4 @@
-package co.edu.uniquindio.software.libreria;
+package co.edu.uniquindio.software.safepet;
 
 import javax.inject.Singleton;
 import javax.ws.rs.GET;

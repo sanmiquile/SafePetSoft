@@ -1,7 +1,7 @@
-package co.edu.uniquindio.software.libreria.gui.beans;
+package co.edu.uniquindio.software.safepet.gui.beans;
 
-import co.edu.uniquindio.software.libreria.logica.ReseniaBO;
-import co.edu.uniquindio.software.libreria.persistencia.entidades.Resenia;
+import co.edu.uniquindio.software.safepet.logica.ReseniaBO;
+import co.edu.uniquindio.software.safepet.persistencia.entidades.Resenia;
 
 import javax.faces.annotation.ManagedProperty;
 import javax.faces.view.ViewScoped;

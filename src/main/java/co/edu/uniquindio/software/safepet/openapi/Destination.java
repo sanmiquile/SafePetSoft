@@ -1,4 +1,4 @@
-package co.edu.uniquindio.software.libreria.openapi;
+package co.edu.uniquindio.software.safepet.openapi;
 
 public class Destination {
 

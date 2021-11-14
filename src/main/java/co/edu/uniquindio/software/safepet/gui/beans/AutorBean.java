@@ -1,7 +1,7 @@
-package co.edu.uniquindio.software.libreria.gui.beans;
+package co.edu.uniquindio.software.safepet.gui.beans;
 
-import co.edu.uniquindio.software.libreria.logica.AutorBO;
-import co.edu.uniquindio.software.libreria.persistencia.entidades.Autor;
+import co.edu.uniquindio.software.safepet.logica.AutorBO;
+import co.edu.uniquindio.software.safepet.persistencia.entidades.Autor;
 
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;

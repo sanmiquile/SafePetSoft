@@ -1,4 +1,4 @@
-package co.edu.uniquindio.software.libreria;
+package co.edu.uniquindio.software.safepet;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.ws.rs.ApplicationPath;

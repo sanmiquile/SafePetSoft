@@ -1,4 +1,4 @@
-package co.edu.uniquindio.software.libreria.logica;
+package co.edu.uniquindio.software.safepet.logica;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
