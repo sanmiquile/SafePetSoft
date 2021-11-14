@@ -5,7 +5,7 @@ import javax.annotation.sql.DataSourceDefinition;
 
 
 @DataSourceDefinition(
-		name = "java:app/libreria/mysql", //
+		name = "java:app/safepet/mysql", //
 		className = "com.mysql.cj.jdbc.MysqlDataSource", //
 		initialPoolSize = 2,
 		minPoolSize = 2,
@@ -14,7 +14,7 @@ import javax.annotation.sql.DataSourceDefinition;
 		portNumber = 3306, //
 		user = "root", //
 		password = "12345678", //
-		databaseName = "libreria", //
+		databaseName = "safepet", //
 		properties = { //
 		"useSSL=false", "useInformationSchema=true", "nullCatalogMeansCurrent=true", "nullNamePatternMatchesAll=false" //
 		}

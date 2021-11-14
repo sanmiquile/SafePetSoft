@@ -9,9 +9,9 @@ The generation of the executable jar file can be performed by issuing the follow
 
     mvn clean package
 
-This will create an executable jar file **libreria-microbundle.jar** within the _target_ maven folder. This can be started by executing the following command
+This will create an executable jar file **safepet-microbundle.jar** within the _target_ maven folder. This can be started by executing the following command
 
-    java -jar target/libreria-microbundle.jar
+    java -jar target/safepet-microbundle.jar
 
 
 
