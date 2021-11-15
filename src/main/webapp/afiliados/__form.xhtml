@@ -26,11 +26,10 @@
                 </div>
                 <div class="p-field">
                     <p:outputLabel for="contraseña">Contraseña</p:outputLabel>
-                    <p:inputText id="contraseña" value="#{afiliadoBean.selectedEntity.contrasenia}"/>
+                    <p:password id="contraseña" value="#{afiliadoBean.selectedEntity.contrasenia}" toggleMask="true" redisplay="true"/>
                 </div>
             </p:outputPanel>
         </p:outputPanel>
-
         <f:facet name="footer">
             <p:commandButton value="Guardar" icon="pi pi-check" actionListener="#{afiliadoBean.save}"
                              update="manage-entity-content" process="manage-entity-content @this"/>
