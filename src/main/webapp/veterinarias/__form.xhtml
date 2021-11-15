@@ -11,20 +11,27 @@
 
     <p:dialog id="dialog" widgetVar="manageEntityDialog">
         <p:outputPanel id="manage-entity-content" class="ui-fluid">
-            <p:outputPanel rendered="#{not empty autorBean.selectedEntity}">
+            <p:outputPanel rendered="#{not empty centroVeterinarioBean.selectedEntity}">
                 <div class="p-field">
                     <p:outputLabel for="id">ID</p:outputLabel>
-                    <p:inputText id="id" value="#{autorBean.selectedEntity.id}" required="true" readonly="#{autorBean.updating}" />
+                    <p:inputText id="id" value="#{centroVeterinarioBean.selectedEntity.id}" required="true" readonly="#{centroVeterinarioBean.updating}" />
                 </div>
                 <div class="p-field">
                     <p:outputLabel for="nombre">Nombre</p:outputLabel>
-                    <p:inputText id="nombre" value="#{autorBean.selectedEntity.nombre}"/>
+                    <p:inputText id="nombre" value="#{centroVeterinarioBean.selectedEntity.nombre}"/>
+                </div>
+                <div class="p-field">
+                    <p:outputLabel for="contraseña">Contraseña</p:outputLabel>
+                    <p:password id="contraseña" value="#{centroVeterinarioBean.selectedEntity.contrasenia}" toggleMask="true" redisplay="true"/>
+                </div>
+                <div class="p-field">
+                    <p:outputLabel for="telefono">Telefono</p:outputLabel>
+                    <p:inputText id="telefono" value="#{centroVeterinarioBean.selectedEntity.telefono}"/>
                 </div>
             </p:outputPanel>
         </p:outputPanel>
-
         <f:facet name="footer">
-            <p:commandButton value="Guardar" icon="pi pi-check" actionListener="#{autorBean.save}"
+            <p:commandButton value="Guardar" icon="pi pi-check" actionListener="#{centroVeterinarioBean.save}"
                              update="manage-entity-content" process="manage-entity-content @this"/>
             <p:commandButton value="Cancel" icon="pi pi-times" onclick="PF('manageEntityDialog').hide()"
                              class="ui-button-secondary"/>

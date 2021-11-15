@@ -8,8 +8,8 @@ import java.util.Objects;
 @Entity
 public class Servicio implements Serializable {
     @Id
-    @Column(length = 15)
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     @Column(length = 50)
     private String nombre;
 
@@ -20,9 +20,9 @@ public class Servicio implements Serializable {
     private List<Plan> plan;
 
 
-    public String getId() {return id;}
+    public Integer getId() {return id;}
 
-    public void setId(String id) {this.id = id;}
+    public void setId(Integer id) {this.id = id;}
 
     public String getNombre() {return nombre;}
 

@@ -2,14 +2,15 @@ package co.edu.uniquindio.software.safepet.persistencia.entidades;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
 @Entity
 public class Plan implements Serializable {
     @Id
-    @Column(length = 15)
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
     @Column(length = 50)
     private Integer mensualidad;
     @Column(length = 50)
@@ -17,14 +18,19 @@ public class Plan implements Serializable {
     @ManyToOne
     @JoinColumn (name="id_Afiliado")// Para designar el nombre de la llave foránea
     private Afiliado afiliado;
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.EAGER)
     private List<Servicio> servicios;
-    @OneToMany (mappedBy = "plan")
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "plan", cascade = CascadeType.REMOVE)
     private List<Mascota> mascotas;
 
-    public String getId() {return id;}
+    public Plan() {
+        servicios = new ArrayList<>();
+        mascotas = new ArrayList<>();
+    }
 
-    public void setId(String id) {
+    public Integer getId() {return id;}
+
+    public void setId(Integer id) {
         this.id = id;
     }
 

@@ -17,12 +17,8 @@
                     <p:inputText id="id" value="#{afiliadoBean.selectedEntity.id}" required="true" readonly="#{afiliadoBean.updating}" />
                 </div>
                 <div class="p-field">
-                    <p:outputLabel for="nombre">Nombre</p:outputLabel>
-                    <p:inputText id="nombre" value="#{afiliadoBean.selectedEntity.nombre}"/>
-                </div>
-                <div class="p-field">
-                    <p:outputLabel for="telefono">Telefono</p:outputLabel>
-                    <p:inputText id="telefono" value="#{afiliadoBean.selectedEntity.telefono}"/>
+                    <p:outputLabel for="usuario">Nombre</p:outputLabel>
+                    <p:inputText id="usuario" value="#{afiliadoBean.selectedEntity.nombre}"/>
                 </div>
                 <div class="p-field">
                     <p:outputLabel for="contraseña">Contraseña</p:outputLabel>
@@ -31,7 +27,7 @@
             </p:outputPanel>
         </p:outputPanel>
         <f:facet name="footer">
-            <p:commandButton value="Guardar" icon="pi pi-check" actionListener="#{afiliadoBean.save}"
+            <p:commandButton value="Ingresar" icon="pi pi-check" actionListener="#{afiliadoBean.save}"
                              update="manage-entity-content" process="manage-entity-content @this"/>
             <p:commandButton value="Cancel" icon="pi pi-times" onclick="PF('manageEntityDialog').hide()"
                              class="ui-button-secondary"/>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head></h:head>
+<f:view>
+    <h:form id="form">
+        <p:growl id="messages" />
+        <h:body>
+            <h:form>
+                <div class="entity-table-header">
+                    <span style="font-weight: bold">Iniciar Sesion </span>
+                    <span class="filter-container ui-input-icon-left">
+
+                    </span>
+                </div>
+                <h:panelGrid columns="2">
+                    <p:outputLabel for="txtUsuario" value="Usuario"/>
+                    <p:inputText id="txtUsuario" required="true"/>
+
+                    <p:outputLabel for="txtclave" value="Clave"/>
+                    <p:inputText id="txtclave" required="true"/>
+                    <p:commandButton value="Ingresar" icon="pi pi-check" actionListener="#{afiliadoBean.save}"/>
+                    <p:commandButton value="Cancel" icon="pi pi-times" onclick="PF('manageEntityDialog').hide()"
+                                     class="ui-button-secondary"/>
+
+                </h:panelGrid>
+            </h:form>
+        </h:body>
+
+        <ui:include src="__form.xhtml" />
+        <p:confirmDialog widgetVar="deleteEntityDialog" showEffect="fade" width="300"
+                         message="Borrar el registro?" header="Confirmación" severity="warn">
+            <p:commandButton value="Si" icon="pi pi-check" actionListener="#{afiliadoBean.delete}"
+                             process="@this" oncomplete="PF('deleteEntityDialog').hide()"/>
+            <p:commandButton value="No" type="button" styleClass="ui-button-secondary" icon="pi pi-times"
+                             onclick="PF('deleteEntityDialog').hide()"/>
+        </p:confirmDialog>
+    </h:form>
+</f:view>
+</html>

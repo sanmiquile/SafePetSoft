@@ -54,4 +54,8 @@ public class GenericBO<T,E> implements Serializable {
         Root<T> root = criteriaQuery.from(type);
         return criteriaQuery.select(root);
     }
+
+    protected EntityManager getEntityManager() {
+        return entityManager;
+    }
 }
