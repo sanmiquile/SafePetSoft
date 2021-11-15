@@ -7,41 +7,66 @@ import java.util.Objects;
 @Entity
 public class Mascota implements Serializable {
     @Id
-    @Column(length = 15)
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY )
+    private Integer id;
     @Column(length = 50)
     private String nombre;
     @Column(length = 15)
     private Integer edad;
     @Column(length = 50)
     private String genero;
-
     @ManyToOne
-    @JoinColumn (name="id_Plan")// Para designar el nombre de la llave foránea
     private  Plan plan;
-    @JoinColumn (name="id_TipoMascota")// Para designar el nombre de la llave foránea
     @ManyToOne
     private TipoMascota  tipoMascota;
 
-    public String getId() {return id;}
+    public Integer getId() {
+        return id;
+    }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
-    public String getNombre() {return nombre;}
 
-    public void setNombre(String id) {
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    public Integer getMensualidad() {
+    public Integer getEdad() {
         return edad;
     }
-    public void setMensualidad(Integer edad){this.edad=edad;}
-    public String getGenero() {return genero;}
 
-    public void setGener(String genero) {this.id =genero;}
+    public void setEdad(Integer edad) {
+        this.edad = edad;
+    }
 
+    public String getGenero() {
+        return genero;
+    }
+
+    public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public Plan getPlan() {
+        return plan;
+    }
+
+    public void setPlan(Plan plan) {
+        this.plan = plan;
+    }
+
+    public TipoMascota getTipoMascota() {
+        return tipoMascota;
+    }
+
+    public void setTipoMascota(TipoMascota tipoMascota) {
+        this.tipoMascota = tipoMascota;
+    }
 
     @Override
     public boolean equals(Object o) {

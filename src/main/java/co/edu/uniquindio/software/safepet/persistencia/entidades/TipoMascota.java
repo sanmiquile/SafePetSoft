@@ -8,8 +8,8 @@ import java.util.Objects;
 @Entity
 public class TipoMascota implements Serializable {
     @Id
-    @Column(length = 15)
-    private String id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     @Column(length = 50)
     private String tipo;
@@ -18,16 +18,29 @@ public class TipoMascota implements Serializable {
     @OneToMany (mappedBy = "tipoMascota")
     private List<Mascota> Mascotas;
 
-    public String getId() {return id;}
+    public Integer getId() {
+        return id;
+    }
 
-    public void setId(String id) {this.id = id;}
-    public String getTipo() {return tipo;}
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
-    public void setTipo(String tipo) {this.tipo = tipo;}
+    public String getTipo() {
+        return tipo;
+    }
 
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
 
+    public List<Mascota> getMascotas() {
+        return Mascotas;
+    }
 
-
+    public void setMascotas(List<Mascota> mascotas) {
+        Mascotas = mascotas;
+    }
 
     @Override
     public boolean equals(Object o) {

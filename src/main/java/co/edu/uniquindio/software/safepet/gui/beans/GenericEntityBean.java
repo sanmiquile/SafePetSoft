@@ -7,12 +7,12 @@ import java.lang.reflect.ParameterizedType;
 import java.util.List;
 
 public abstract class GenericEntityBean<E,K,T extends GenericBO<E,K>> extends AbstracBean {
-    private E selectedEntity;
+    protected E selectedEntity;
     private final T bo;
     private final Class<E> type;
     private List<E> entities;
     private List<E> selectedEntities;
-    private boolean updating = false;
+    protected boolean updating = false;
 
     public GenericEntityBean(T bo){
         this.bo = bo;
