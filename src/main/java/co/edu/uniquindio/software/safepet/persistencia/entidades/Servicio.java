@@ -16,9 +16,8 @@ public class Servicio implements Serializable {
     @Column(length = 50)
     private Integer valor;
 
-    @ManyToOne
-    @JoinColumn (name="id_Plan")// Para designar el nombre de la llave foránea
-    private Plan plan;
+    @ManyToMany(mappedBy = "servicios")
+    private List<Plan> plan;
 
 
     public String getId() {return id;}

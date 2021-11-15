@@ -17,8 +17,8 @@ public class Plan implements Serializable {
     @ManyToOne
     @JoinColumn (name="id_Afiliado")// Para designar el nombre de la llave foránea
     private Afiliado afiliado;
-    @OneToMany (mappedBy = "plan")
-    private List<Servicio> Servicios;
+    @ManyToMany
+    private List<Servicio> servicios;
     @OneToMany (mappedBy = "plan")
     private List<Mascota> mascotas;
 
@@ -46,11 +46,11 @@ public class Plan implements Serializable {
     }
 
     public List<Servicio> getServicios() {
-        return Servicios;
+        return servicios;
     }
 
     public void setServicios(List<Servicio> servicios) {
-        Servicios = servicios;
+        servicios = servicios;
     }
 
     public List<Mascota> getMascotas() {
