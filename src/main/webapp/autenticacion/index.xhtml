@@ -10,45 +10,27 @@
 <f:view>
     <h:form id="form">
         <p:growl id="messages" />
-        <p:toolbar>
-            <p:toolbarGroup>
-                <p:commandButton value="Nuevo" icon="pi pi-plus" actionListener="#{afiliadoBean.newEntity}"
-                                 update=":form:manage-entity-content" oncomplete="PF('manageEntityDialog').show()"
-                                 styleClass="ui-button-success" style="margin-right: .5rem">
-                    <p:resetInput target=":form:manage-entity-content"/>
-                </p:commandButton>
-            </p:toolbarGroup>
-
-        </p:toolbar>
-
-        <p:dataTable id="dt-entities" widgetVar="dtEntities" var="entity" value="#{afiliadoBean.entities}"
-                     reflow="true" styleClass="entity-table"
-                     selection="#{afiliadoBean.selectedEntities}" rowKey="#{entity.dny}" paginator="true"
-                     rows="10" rowSelectMode="add" paginatorPosition="bottom">
-            <f:facet name="header">
+        <h:body>
+            <h:form>
                 <div class="entity-table-header">
-                    <span style="font-weight: bold">AUTENTICACION</span>
+                    <span style="font-weight: bold">Iniciar Sesion </span>
                     <span class="filter-container ui-input-icon-left">
-                        <i class="pi pi-search"></i>
-                        <p:inputText id="globalFilter" onkeyup="PF('dtEntities').filter()" placeholder="Buscar"/>
+
                     </span>
                 </div>
-            </f:facet>
-            <!-- COLUMNAS DE LOS ATRIBUTOS QUE DESEO MOSTRAR EN LA TABLA -->
-            <p:column exportable="false">
-                <p:commandButton icon="pi pi-pencil" update=":form:manage-entity-content"
-                                 oncomplete="PF('manageEntityDialog').show()"
-                                 styleClass="edit-button rounded-button ui-button-success" process="@this">
-                    <f:setPropertyActionListener value="#{entity}" target="#{afiliadoBean.selectedEntity}"/>
-                    <p:resetInput target=":form:manage-entity-content"/>
-                </p:commandButton>
-                <p:commandButton class="ui-button-warning rounded-button" icon="pi pi-trash" process="@this"
-                                 oncomplete="PF('deleteEntityDialog').show()">
-                    <f:setPropertyActionListener value="#{entity}" target="#{afiliadoBean.selectedEntity}"/>
-                </p:commandButton>
-            </p:column>
+                <h:panelGrid columns="2">
+                    <p:outputLabel for="txtUsuario" value="Usuario"/>
+                    <p:inputText id="txtUsuario" required="true"/>
 
-        </p:dataTable>
+                    <p:outputLabel for="txtclave" value="Clave"/>
+                    <p:inputText id="txtclave" required="true"/>
+                    <p:commandButton value="Ingresar" icon="pi pi-check" actionListener="#{afiliadoBean.save}"/>
+                    <p:commandButton value="Cancel" icon="pi pi-times" onclick="PF('manageEntityDialog').hide()"
+                                     class="ui-button-secondary"/>
+
+                </h:panelGrid>
+            </h:form>
+        </h:body>
 
         <ui:include src="__form.xhtml" />
         <p:confirmDialog widgetVar="deleteEntityDialog" showEffect="fade" width="300"
