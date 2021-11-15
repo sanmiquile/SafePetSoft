@@ -9,5 +9,5 @@ import javax.ws.rs.core.Application;
  */
 @ApplicationPath("/data")
 @ApplicationScoped
-public class LibreriaRestApplication extends Application {
+public class SafepetRestApplication extends Application {
 }

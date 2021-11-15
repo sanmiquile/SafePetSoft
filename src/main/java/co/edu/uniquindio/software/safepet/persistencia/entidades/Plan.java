@@ -20,7 +20,7 @@ public class Plan implements Serializable {
     @OneToMany (mappedBy = "plan")
     private List<Servicio> Servicios;
     @OneToMany (mappedBy = "plan")
-    private List<TipoMascota> tipoMascotas;
+    private List<Mascota> mascotas;
 
     public String getId() {return id;}
 
@@ -37,7 +37,29 @@ public class Plan implements Serializable {
     }
     public void setCopago(Integer copago){this.copago=copago;}
 
+    public Afiliado getAfiliado() {
+        return afiliado;
+    }
 
+    public void setAfiliado(Afiliado afiliado) {
+        this.afiliado = afiliado;
+    }
+
+    public List<Servicio> getServicios() {
+        return Servicios;
+    }
+
+    public void setServicios(List<Servicio> servicios) {
+        Servicios = servicios;
+    }
+
+    public List<Mascota> getMascotas() {
+        return mascotas;
+    }
+
+    public void setMascotas(List<Mascota> mascotas) {
+        this.mascotas = mascotas;
+    }
 
     @Override
     public boolean equals(Object o) {
