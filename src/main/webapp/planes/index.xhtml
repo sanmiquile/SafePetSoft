@@ -7,6 +7,8 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 <h:head></h:head>
+<ui:composition template="/WEB-INF/template/plantilla.xhtml">
+    <ui:define name="content">
 <f:view>
     <h:form id="form">
         <p:growl id="messages" />
@@ -112,4 +114,6 @@
         </p:confirmDialog>
     </h:form>
 </f:view>
+</ui:define>
+        </ui:composition>
 </html>

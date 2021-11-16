@@ -3,7 +3,9 @@
 	<persistence-unit name="microprofile-ejemplo">
 		<jta-data-source>java:app/safepet/mysql</jta-data-source>
 		<properties>
-			<property name="javax.persistence.schema-generation.database.action" value="create"/>
+			<property name="javax.persistence.schema-generation.database.action" value="drop-and-create"/>
+			<property name="javax.persistence.sql-load-script-source" value="data.sql" />
+
 		</properties>
 	</persistence-unit>
 </persistence>
