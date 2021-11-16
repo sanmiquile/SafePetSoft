@@ -24,8 +24,6 @@
             <web-resource-name>protegido</web-resource-name>
             <url-pattern>/afiliados/*</url-pattern>
             <url-pattern>/welcome/*</url-pattern>
-            <url-pattern>/autores/*</url-pattern>
-            <url-pattern>/libros/*</url-pattern>
             <url-pattern>/planes/*</url-pattern>
             <url-pattern>/veterinarias/*</url-pattern>
             <http-method>GET</http-method>
