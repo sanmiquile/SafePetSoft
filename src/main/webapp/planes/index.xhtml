@@ -90,6 +90,12 @@
                                  oncomplete="PF('deleteEntityDialog').show()">
                     <f:setPropertyActionListener value="#{entity}" target="#{planBean.selectedEntity}"/>
                 </p:commandButton>
+                <p:commandButton icon="pi pi-dollar" update=":form:manage-entity-content"
+                oncomplete="PF('manageEntityDialog').show()"
+                styleClass="edit-button rounded-button ui-button-success" process="@this">
+                <f:setPropertyActionListener value="#{entity}" target="#{planBean.selectedEntity}"/>
+                <p:resetInput target=":form:manage-entity-content"/>
+            </p:commandButton>
             </p:column>
 
         </p:dataTable>
