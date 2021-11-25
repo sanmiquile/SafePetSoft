@@ -9,16 +9,16 @@
 <h:head></h:head>
 <f:view>
 
-    <p:dialog id="dialog" widgetVar="manageEntityDialog">
-        <p:outputPanel id="manage-entity-content" class="ui-fluid">
+    <p:dialog id="dialogPago" widgetVar="manageEntityDialog2">
+        <p:outputPanel id="manage-entity-content2" class="ui-fluid">
             <p:outputPanel rendered="#{not empty planBean.selectedEntity}">
 
 
                 <div class="p-field">
-                    <p:outputLabel for="afiliado">INFORMACIÓN PARA PAGO</p:outputLabel>
+                    INFORMACIÓN PARA PAGO
                     <br /><br /><br /><br /><br />
-                    <p:outputLabel for="afiliado">AFILIADO</p:outputLabel>
-                    <p:selectOneMenu id="afiliado" value="#{planBean.selectedEntity.afiliado}" converter="#{afiliadoConverter}"
+                    <p:outputLabel for="afiliado2">AFILIADO</p:outputLabel>
+                    <p:selectOneMenu id="afiliado2" value="#{planBean.selectedEntity.afiliado}" converter="#{afiliadoConverter}"
                                      panelStyle="width:180px" effect="fade" var="c"
                                      filter="true" filterMatchMode="startsWith">
 
@@ -42,23 +42,23 @@
                 </div>
 
                 <div class="p-field">
-                    <p:outputLabel for="servicios">SERVICIOS</p:outputLabel>
-                    <p:selectCheckboxMenu id="servicios" value="#{planBean.servicios}" label="Servicios" style="min-width: 15rem"
+                    <p:outputLabel for="servicios2">SERVICIOS</p:outputLabel>
+                    <p:selectCheckboxMenu id="servicios2" value="#{planBean.servicios}" label="Servicios2" style="min-width: 15rem"
                                           multiple="true" filter="true" filterMatchMode="startsWith" panelStyle="width: 30rem" scrollHeight="250" converter="servicioConverter">
 
                         <p:ajax event="change" listener="#{planBean.subjectSelectionChanged}" update="mensualidad copago" />
 
 
-                        <f:selectItems value="#{servicioBean.entities}" var="servicio" itemLabel="#{servicio.nombre} - #{servicio.valor}" itemValue="#{servicio}" />
+                        <f:selectItems value="#{servicioBean.entities}" var="servicio2" itemLabel="#{servicio.nombre} - #{servicio.valor}" itemValue="#{servicio}" />
                     </p:selectCheckboxMenu>
                 </div>
                 <div class="p-field">
-                    <p:outputLabel for="mensualidad">Mensualidad</p:outputLabel>
-                    <p:inputText id="mensualidad" value="#{planBean.selectedEntity.mensualidad}" readonly="true" />
+                    <p:outputLabel for="mensualidad2">Mensualidad</p:outputLabel>
+                    <p:inputText id="mensualidad2" value="#{planBean.selectedEntity.mensualidad}" readonly="true" />
                 </div>
                 <div class="p-field">
-                    <p:outputLabel for="mensualidad2">Medio de pago</p:outputLabel>
-                    <p:inputText id="mensualidad2" value="#{planBean.selectedEntity.mensualidad}" readonly="true" />
+                    <p:outputLabel for="pago2">Medio de pago</p:outputLabel>
+                    <p:inputText id="pago2" value="#{planBean.selectedEntity.mensualidad}" readonly="true" />
                 </div>
 
             </p:outputPanel>
