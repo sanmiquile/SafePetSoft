@@ -42,6 +42,7 @@
             <web-resource-name>protegido</web-resource-name>
             <url-pattern>/welcome/*</url-pattern>
             <url-pattern>/planes/*</url-pattern>
+            <url-pattern>/simulacion/*</url-pattern>
             <http-method>GET</http-method>
             <http-method>POST</http-method>
         </web-resource-collection>
