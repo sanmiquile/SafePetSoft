@@ -24,7 +24,6 @@ public class PlanBean extends PrimeFacesCrudBean<Plan,Integer, PlanBO> {
     }
 
     private Mascota mascota;
-    private List<Mascota> mascotas;
 
     private List<Servicio> servicios;
 
@@ -57,34 +56,12 @@ public class PlanBean extends PrimeFacesCrudBean<Plan,Integer, PlanBO> {
     }
 
     public void subjectSelectionChanged(final AjaxBehaviorEvent event)  {
-        double valor = 0;
-        int cont = 0;
-        if( servicios != null  ){
-
+        if( servicios != null ){
+            int valor = 0;
             for (Servicio a:servicios) {
                 valor += a.getValor();
-
             }
-            /*
-            for (Mascota a: mascotas) {
-                if (a.getNombre() != null){
-                  cont +=1;
-
-                }
-                */
-            if( mascotas.size() <= 1 ){
-                selectedEntity.setMensualidad(valor);
-            } else if( mascotas.size() == 2 ){
-                selectedEntity.setMensualidad(valor * 1.25);
-            } else {
-                selectedEntity.setMensualidad(valor * 1.35);
-            }
-              /* if (cont >= 2){
-                   selectedEntity.setMensualidad(valor * 1.35);
-               }
-*/
-            }
-            //selectedEntity.setMensualidad(valor);
+            selectedEntity.setMensualidad(valor);
 
             if( servicios.size() <= 2 ){
                 selectedEntity.setCopago(10000);
@@ -94,7 +71,7 @@ public class PlanBean extends PrimeFacesCrudBean<Plan,Integer, PlanBO> {
                 selectedEntity.setCopago(2000);
             }
         }
-
+    }
 
     public void crearMascota(){
         mascota.setPlan(selectedEntity);
