@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+<h:head></h:head>
+<span style="font-weight: bold">USUARIO</span>
+    <span class="filter-container ui-input-icon-left">
+                        <i class="pi pi-search"></i>
+                        <p:inputText id="globalFilter" onkeyup="PF('dtEntities').filter()" placeholder="Buscar"/>
+                    </span>
+<ui:composition template="/WEB-INF/template/plantilla.xhtml">
+<ui:define name="content">
+
+<f:view>
+    <span style="font-weight: bold">CONSULTAR</span>
+
+
+
+
+</f:view>
+
+    <!-- COLUMNAS DE LOS ATRIBUTOS QUE DESEO MOSTRAR EN LA TABLA -->
+    <p:column headerText="CONSULTAR"  >
+        <h:outputText value="#{entity.id2}"/>
+    </p:column>
+    <p:column headerText="MENSUALIDAD"  >
+        <h:outputText value="#{entity.mensualidad2}"/>
+    </p:column>
+    <p:column headerText="COPAGO"  >
+        <h:outputText value="#{entity.copago2}"/>
+    </p:column>
+    <p:column headerText="AFILIADO"  >
+        <h:outputText value="#{entity.afiliado2.nombre}"/>
+    </p:column>
+    <p:column headerText="MASCOTAS"  >
+        <h:outputText value="#{entity.mascota2.nombre}"/>
+    </p:column>
+
+</ui:define>
+</ui:composition>
+
+</html>
