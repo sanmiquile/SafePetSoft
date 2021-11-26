@@ -36,6 +36,41 @@
             <transport-guarantee>NONE</transport-guarantee>
         </user-data-constraint>
     </security-constraint>
+    <!-- SECURITY CONSTRAINT #2 -->
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>protegido</web-resource-name>
+            <url-pattern>/welcome/*</url-pattern>
+            <url-pattern>/planes/*</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>Afiliado</role-name>
+        </auth-constraint>
+        <user-data-constraint>
+            <transport-guarantee>NONE</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+
+    <!-- SECURITY CONSTRAINT #3 -->
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>protegido</web-resource-name>
+            <url-pattern>/welcome/*</url-pattern>
+            <url-pattern>/planes/*</url-pattern>
+            <http-method>GET</http-method>
+            <http-method>POST</http-method>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>CentroVeterinario</role-name>
+        </auth-constraint>
+        <user-data-constraint>
+            <transport-guarantee>NONE</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+
+
 <!--    &lt;!&ndash; SECURITY CONSTRAINT #2 &ndash;&gt;-->
 <!--    <security-constraint>-->
 <!--        <web-resource-collection>-->

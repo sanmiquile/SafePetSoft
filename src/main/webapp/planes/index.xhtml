@@ -90,12 +90,19 @@
                                  oncomplete="PF('deleteEntityDialog').show()">
                     <f:setPropertyActionListener value="#{entity}" target="#{planBean.selectedEntity}"/>
                 </p:commandButton>
+                <p:commandButton icon="pi pi-dollar" update=":form:manage-entity-content2"
+                oncomplete="PF('manageEntityDialog2').show()"
+                styleClass="edit-button rounded-button ui-button-success" process="@this">
+                <f:setPropertyActionListener value="#{entity}" target="#{planBean.selectedEntity}"/>
+                <p:resetInput target=":form:manage-entity-content2"/>
+            </p:commandButton>
             </p:column>
 
         </p:dataTable>
 
         <ui:include src="__formMascota.xhtml" />
         <ui:include src="__form.xhtml" />
+        <ui:include src="__formPay.xhtml" />
         <p:confirmDialog widgetVar="deleteEntityDialog" showEffect="fade" width="300"
                          message="Borrar el registro?" header="Confirmación" severity="warn">
             <p:commandButton value="Si" icon="pi pi-check" actionListener="#{planBean.delete}"
