@@ -43,3 +43,8 @@ Exposes the information about your endpoints in the format of the OpenAPI v3 spe
 
 The index page contains a link to the OpenAPI information of your endpoints.
 
+
+### JAVA HOME en Mac
+
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+
