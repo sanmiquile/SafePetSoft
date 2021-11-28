@@ -60,7 +60,7 @@ public class PlanBean extends PrimeFacesCrudBean<Plan,Integer, PlanBO> {
         double valor = 0;
         int cont = 0;
         if( servicios != null  ){
-
+// se crea el metodo recalcular y se llama acà con el fragmento del for
             for (Servicio a:servicios) {
                 valor += a.getValor();
 
@@ -101,12 +101,14 @@ public class PlanBean extends PrimeFacesCrudBean<Plan,Integer, PlanBO> {
         selectedEntity.getMascotas().add(
                 mascotaBO.create(mascota)
         );
+        //aqui....metodoCalcularP
     }
 
     public void eliminarMascota() {
         mascotaBO.delete(mascota);
 //        mostrarMensajeGeneral(getMessage(MessageConstants.OPERACION_FINALIZADA));
         selectedEntity.getMascotas().remove(mascota);
+        ///aqui
     }
 
     public void newMascota(){
