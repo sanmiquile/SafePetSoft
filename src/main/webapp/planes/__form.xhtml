@@ -40,7 +40,7 @@
                 </div>
 
                 <div class="p-field">
-                    <p:outputLabel for="servicios">SERVICIOS</p:outputLabel>
+                    <p:outputLabel for="servicios">SERVICIO</p:outputLabel>
                     <p:selectCheckboxMenu id="servicios" value="#{planBean.servicios}" label="Servicios" style="min-width: 15rem"
                                           multiple="true" filter="true" filterMatchMode="startsWith" panelStyle="width: 30rem" scrollHeight="250" converter="servicioConverter">
 
@@ -58,6 +58,11 @@
                 <div class="p-field">
                     <p:outputLabel for="mensualidad">Mensualidad</p:outputLabel>
                     <p:inputText id="mensualidad" value="#{planBean.selectedEntity.mensualidad}" readonly="true" />
+                </div>
+                <div class="p-field">
+                <p:outputLabel for="servicios">ALGO</p:outputLabel>
+
+
                 </div>
 
             </p:outputPanel>

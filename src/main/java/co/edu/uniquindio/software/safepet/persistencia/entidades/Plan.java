@@ -12,7 +12,7 @@ public class Plan implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(length = 50)
-    private Integer mensualidad;
+    private double mensualidad;
     @Column(length = 50)
     private Integer copago;
     @ManyToOne
@@ -34,10 +34,10 @@ public class Plan implements Serializable {
         this.id = id;
     }
 
-    public Integer getMensualidad() {
+    public double getMensualidad() {
         return mensualidad;
     }
-    public void setMensualidad(Integer mensualidad){this.mensualidad=mensualidad;}
+    public void setMensualidad(double mensualidad){this.mensualidad=mensualidad;}
     public Integer getCopago() {
         return copago;
     }

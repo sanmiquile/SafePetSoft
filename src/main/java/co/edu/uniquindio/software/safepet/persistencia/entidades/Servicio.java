@@ -33,8 +33,6 @@ public class Servicio implements Serializable {
     }
     public void setValor(Integer valor){this.valor=valor;}
 
-
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

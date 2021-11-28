@@ -15,6 +15,9 @@ public class Mascota implements Serializable {
     private Integer edad;
     @Column(length = 50)
     private String genero;
+
+    @Column(length = 50)
+    private Integer cantidad;
     @ManyToOne
     private  Plan plan;
     @ManyToOne
@@ -49,6 +52,14 @@ public class Mascota implements Serializable {
     }
 
     public void setGenero(String genero) {
+        this.genero = genero;
+    }
+
+    public Integer getCantidad() {
+        return cantidad;
+    }
+
+    public void setCantidad(Integer cantidad) {
         this.genero = genero;
     }
 
