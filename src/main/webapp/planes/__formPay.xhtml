@@ -18,27 +18,7 @@
                     INFORMACIÓN PARA PAGO
                     <br /><br /><br /><br /><br />
                     <p:outputLabel for="afiliado2">AFILIADO</p:outputLabel>
-                    <p:selectOneMenu id="afiliado2" value="#{planBean.selectedEntity.afiliado}" converter="#{afiliadoConverter}"
-                                     panelStyle="width:180px" effect="fade" var="c"
-                                     filter="true" filterMatchMode="startsWith">
-
-                        <f:selectItems value="#{afiliadoBean.entities}" var="entidad"
-                                       itemLabel="#{entidad.nombre}" itemValue="#{entidad}"/>
-
-                        <p:column>
-                            <f:facet name="header">
-                                <h:outputText value="Nombre"/>
-                            </f:facet>
-                            <h:outputText value="#{c.nombre}"/>
-                        </p:column>
-
-
-
-                        <f:facet name="footer">
-                            <h:outputText value="#{afiliadoBean.entities.size()} afiliados"
-                                          style="font-weight:bold;" styleClass="p-py-1 p-d-block"/>
-                        </f:facet>
-                    </p:selectOneMenu>
+                    <p:inputText id="afiliado2" value="#{planBean.selectedEntity.afiliado.nombre}" readonly="true" ></p:inputText>
                 </div>
 
                 <div class="p-field">
