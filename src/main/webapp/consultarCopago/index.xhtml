@@ -7,41 +7,65 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 <h:head></h:head>
-<span style="font-weight: bold">USUARIO</span>
-    <span class="filter-container ui-input-icon-left">
+<ui:composition template="/WEB-INF/template/plantilla.xhtml">
+    <ui:define name="content">
+        <f:view>
+            <h:form id="form">
+                <p:growl id="messages" />
+
+                <p:dataTable id="dt-entities" widgetVar="dtEntities" var="entity" value="#{planBean.entities}"
+                             reflow="true" styleClass="entity-table"
+                             selection="#{planBean.selectedEntities}" rowKey="#{entity.dny}" paginator="true"
+                             rows="10" rowSelectMode="add" paginatorPosition="bottom">
+                    <f:facet name="header">
+                        <div class="entity-table-header">
+                            <span style="font-weight: bold">BUSCAR AFILIADO </span>
+
+                            <span class="filter-container ui-input-icon-left">
                         <i class="pi pi-search"></i>
                         <p:inputText id="globalFilter" onkeyup="PF('dtEntities').filter()" placeholder="Buscar"/>
                     </span>
-<ui:composition template="/WEB-INF/template/plantilla.xhtml">
-<ui:define name="content">
+                        </div>
+                    </f:facet>
+                    <!-- COLUMNAS DE LOS ATRIBUTOS QUE DESEO MOSTRAR EN LA TABLA -->
+                    <p:column headerText="AFILIADO" filterBy="#{entity.afiliado.nombre}" filterStyle="display: none" >
+                        <h:outputText value="#{entity.afiliado.nombre}"/>
+                    </p:column>
+                    <p:column headerText="COPAGO" filterBy="#{entity.copago}" filterStyle="display: none" >
+                        <h:outputText value="#{entity.copago}"/>
+                    </p:column>
+                    <p:column headerText="PLAN" filterBy="#{entity.id}" filterStyle="display: none" >
+                        <h:outputText value="#{entity.id}"/>
+                    </p:column>
+                    <p:column headerText="MENSUALIDAD" filterBy="#{entity.mensualidad}" filterStyle="display: none" >
+                        <h:outputText value="#{entity.mensualidad}"/>
+                    </p:column>
+                     <p:column exportable="false">
+                        <p:commandButton icon="pi pi-pencil" update=":form:manage-entity-content"
+                                         oncomplete="PF('manageEntityDialog').show()"
+                                         styleClass="edit-button rounded-button ui-button-success" process="@this">
+                            <f:setPropertyActionListener value="#{entity}" target="#{planBean.selectedEntity}"/>
+                            <p:resetInput target=":form:manage-entity-content"/>
+                        </p:commandButton>
+                        <p:commandButton class="ui-button-warning rounded-button" icon="pi pi-trash" process="@this"
+                                         oncomplete="PF('deleteEntityDialog').show()">
+                            <f:setPropertyActionListener value="#{entity}" target="#{planBean.selectedEntity}"/>
+                        </p:commandButton>
+                    </p:column>
 
-<f:view>
-    <br /><br /><br /><br /><br />
-    <span style="font-weight: bold">CONSULTAR</span>
+                </p:dataTable>
 
-    <!-- COLUMNAS DE LOS ATRIBUTOS QUE DESEO MOSTRAR EN LA TABLA -->
-    <p:column headerText="CONSULTA" filterBy="#{entity.id2}" filterStyle="display: none" >
-        <h:outputText value="#{entity.id2}"/>
-    </p:column>
-    <p:column headerText="MENSUALIDAD" filterBy="#{entity.mensualidad2}" filterStyle="display: none" >
-        <h:outputText value="#{entity.mensualidad2}"/>
-    </p:column>
-    <p:column headerText="COPAGO" filterBy="#{entity.copago2}" filterStyle="display: none" >
-        <h:outputText value="#{entity.copago2}"/>
-    </p:column>
-    <p:column headerText="AFILIADO" filterBy="#{entity.afiliado2.nombre}" filterStyle="display: none" > >
-        <h:outputText value="#{entity.afiliado2.nombre}"/>
-    </p:column>
-    <p:column headerText="MASCOTAS"  filterBy="#{entity.mascota2.nombre}" filterStyle="display: none" > >
-        <h:outputText value="#{entity.mascota2.nombre}"/>
-    </p:column>
+                <ui:include src="__form.xhtml" />
+                <p:confirmDialog widgetVar="deleteEntityDialog" showEffect="fade" width="300"
+                                 message="Borrar el registro?" header="Confirmación" severity="warn">
+                    <p:commandButton value="Si" icon="pi pi-check" actionListener="#{planBean.delete}"
+                                     process="@this" oncomplete="PF('deleteEntityDialog').hide()"/>
+                    <p:commandButton value="No" type="button" styleClass="ui-button-secondary" icon="pi pi-times"
+                                     onclick="PF('deleteEntityDialog').hide()"/>
+                </p:confirmDialog>
 
-
-
-</f:view>
-
-
-</ui:define>
+            </h:form>
+        </f:view>
+    </ui:define>
 </ui:composition>
-
 </html>
