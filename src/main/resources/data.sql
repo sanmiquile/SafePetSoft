@@ -8,7 +8,7 @@ insert into USUARIO values('4','Centroveterinario','12345','Ana Maria');
 insert into CENTROVETERINARIO values('4','3157777777');
 
 insert into SERVICIO values(null,'Vacunas',20000);
-insert into SERVICIO values(null,'Desparacitación',15000);
+insert into SERVICIO values(null,'Desparasitación',15000);
 insert into SERVICIO values(null,'Consultas',30000);
 insert into SERVICIO values(null,'Hospitalización',10000);
 insert into SERVICIO values(null,'Medicamentos',30000);
@@ -17,3 +17,4 @@ insert into SERVICIO values(null,'Funeraria',90000);
 
 insert into TIPOMASCOTA values(null,'Perro');
 insert into TIPOMASCOTA values(null,'Gato');
+
