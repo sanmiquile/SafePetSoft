@@ -16,29 +16,30 @@
 <ui:define name="content">
 
 <f:view>
+    <br /><br /><br /><br /><br />
     <span style="font-weight: bold">CONSULTAR</span>
 
+    <!-- COLUMNAS DE LOS ATRIBUTOS QUE DESEO MOSTRAR EN LA TABLA -->
+    <p:column headerText="CONSULTA" filterBy="#{entity.id2}" filterStyle="display: none" >
+        <h:outputText value="#{entity.id2}"/>
+    </p:column>
+    <p:column headerText="MENSUALIDAD" filterBy="#{entity.mensualidad2}" filterStyle="display: none" >
+        <h:outputText value="#{entity.mensualidad2}"/>
+    </p:column>
+    <p:column headerText="COPAGO" filterBy="#{entity.copago2}" filterStyle="display: none" >
+        <h:outputText value="#{entity.copago2}"/>
+    </p:column>
+    <p:column headerText="AFILIADO" filterBy="#{entity.afiliado2.nombre}" filterStyle="display: none" > >
+        <h:outputText value="#{entity.afiliado2.nombre}"/>
+    </p:column>
+    <p:column headerText="MASCOTAS"  filterBy="#{entity.mascota2.nombre}" filterStyle="display: none" > >
+        <h:outputText value="#{entity.mascota2.nombre}"/>
+    </p:column>
 
 
 
 </f:view>
 
-    <!-- COLUMNAS DE LOS ATRIBUTOS QUE DESEO MOSTRAR EN LA TABLA -->
-    <p:column headerText="CONSULTAR"  >
-        <h:outputText value="#{entity.id2}"/>
-    </p:column>
-    <p:column headerText="MENSUALIDAD"  >
-        <h:outputText value="#{entity.mensualidad2}"/>
-    </p:column>
-    <p:column headerText="COPAGO"  >
-        <h:outputText value="#{entity.copago2}"/>
-    </p:column>
-    <p:column headerText="AFILIADO"  >
-        <h:outputText value="#{entity.afiliado2.nombre}"/>
-    </p:column>
-    <p:column headerText="MASCOTAS"  >
-        <h:outputText value="#{entity.mascota2.nombre}"/>
-    </p:column>
 
 </ui:define>
 </ui:composition>

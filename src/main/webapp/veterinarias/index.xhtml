@@ -37,13 +37,13 @@
                 </div>
             </f:facet>
             <!-- COLUMNAS DE LOS ATRIBUTOS QUE DESEO MOSTRAR EN LA TABLA -->
-            <p:column headerText="ID" >
+            <p:column headerText="ID" filterBy="#{entity.id}" filterStyle="display: none" >
                 <h:outputText value="#{entity.id}"/>
             </p:column>
-            <p:column headerText="Nombre" >
+            <p:column headerText="Nombre" filterBy="#{entity.nombre}" filterStyle="display: none" >
                 <h:outputText value="#{entity.nombre}"/>
             </p:column>
-                <p:column headerText="Telefono" >
+                <p:column headerText="Telefono" filterBy="#{entity.telefono}" filterStyle="display: none" >
                     <h:outputText value="#{entity.telefono}"/>
                 </p:column>
             <p:column exportable="false">

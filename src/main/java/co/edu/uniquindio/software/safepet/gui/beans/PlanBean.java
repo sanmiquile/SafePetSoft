@@ -77,6 +77,7 @@ public class PlanBean extends PrimeFacesCrudBean<Plan,Integer, PlanBO> {
         mascota.setPlan(selectedEntity);
         selectedEntity.getMascotas().add(
                 mascotaBO.create(mascota)
+                // se llama el nuevo mètodo aquì para que afecte el valor de la mensualidad por el aumento de mascotas
         );
     }
 
@@ -84,6 +85,7 @@ public class PlanBean extends PrimeFacesCrudBean<Plan,Integer, PlanBO> {
         mascotaBO.delete(mascota);
 //        mostrarMensajeGeneral(getMessage(MessageConstants.OPERACION_FINALIZADA));
         selectedEntity.getMascotas().remove(mascota);
+        // se llama el nuevo mètodo aquì para que afecte el valor de la mensualidad por la disminuciòn de mascota
     }
 
     public void newMascota(){
