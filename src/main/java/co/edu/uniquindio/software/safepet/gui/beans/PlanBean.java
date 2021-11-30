@@ -26,6 +26,10 @@ public class PlanBean extends PrimeFacesCrudBean<Plan,Integer, PlanBO> {
     private Mascota mascota;
     private List<Mascota> mascotas;
 
+    public void setMascotas(List<Mascota> mascotas) {
+       this.mascotas = mascotas;
+    }
+
     private List<Servicio> servicios;
 
     public List<Servicio> getServicios() {
@@ -51,40 +55,23 @@ public class PlanBean extends PrimeFacesCrudBean<Plan,Integer, PlanBO> {
     }
 
     public void save(){
-        selectedEntity.getServicios().clear();
         selectedEntity.getServicios().addAll(servicios);
+        selectedEntity.getServicios().clear();
+       // selectedEntity.getMascotas().clear();
+       // selectedEntity.getMascotas().addAll(mascotas);
         super.save();
     }
 
     public void subjectSelectionChanged(final AjaxBehaviorEvent event)  {
-        double valor = 0;
-        int cont = 0;
-        if( servicios != null  ){
 
+        double vr = calcularMensualidadPlan();
+    /*    if( servicios != null ){
+            double valor = 0;
             for (Servicio a:servicios) {
                 valor += a.getValor();
-
             }
-            /*
-            for (Mascota a: mascotas) {
-                if (a.getNombre() != null){
-                  cont +=1;
-
-                }
-                */
-            if( mascotas.size() <= 1 ){
-                selectedEntity.setMensualidad(valor);
-            } else if( mascotas.size() == 2 ){
-                selectedEntity.setMensualidad(valor * 1.25);
-            } else {
-                selectedEntity.setMensualidad(valor * 1.35);
-            }
-              /* if (cont >= 2){
-                   selectedEntity.setMensualidad(valor * 1.35);
-               }
-*/
-            }
-            //selectedEntity.setMensualidad(valor);
+            */
+            selectedEntity.setMensualidad(vr);
 
             if( servicios.size() <= 2 ){
                 selectedEntity.setCopago(10000);
@@ -93,6 +80,33 @@ public class PlanBean extends PrimeFacesCrudBean<Plan,Integer, PlanBO> {
             } else {
                 selectedEntity.setCopago(2000);
             }
+       // }
+        }
+
+        public double calcularMensualidadPlan(){
+            double valor = 0.0d;
+            int cont = 0;
+            Mascota mascota;
+            for (Servicio a:servicios) {
+                valor += a.getValor();
+            }
+           for(Mascota a: selectedEntity.getMascotas()){
+               if(a.getNombre() != null){
+                   cont +=1;
+               }
+           }
+            if( cont <= 1 ){
+                selectedEntity.setMensualidad(valor);
+            } else if( cont == 2 ){
+                selectedEntity.setMensualidad(valor * 1.25);
+            } else {
+                if(cont == 3){
+                    selectedEntity.setMensualidad(valor * 1.35);
+                }
+            }
+            cont = 0;
+            return valor;
+
         }
 
 
@@ -101,12 +115,14 @@ public class PlanBean extends PrimeFacesCrudBean<Plan,Integer, PlanBO> {
         selectedEntity.getMascotas().add(
                 mascotaBO.create(mascota)
         );
+        calcularMensualidadPlan();
     }
 
     public void eliminarMascota() {
         mascotaBO.delete(mascota);
 //        mostrarMensajeGeneral(getMessage(MessageConstants.OPERACION_FINALIZADA));
         selectedEntity.getMascotas().remove(mascota);
+        calcularMensualidadPlan();
     }
 
     public void newMascota(){
