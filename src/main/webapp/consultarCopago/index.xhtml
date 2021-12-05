@@ -7,40 +7,50 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:p="http://primefaces.org/ui">
 <h:head></h:head>
-<span style="font-weight: bold">USUARIO</span>
-    <span class="filter-container ui-input-icon-left">
+<ui:composition template="/WEB-INF/template/plantilla.xhtml">
+    <ui:define name="content">
+        <f:view>
+            <h:form id="form">
+                <p:growl id="messages" />
+
+                <p:dataTable id="dt-entities" widgetVar="dtEntities" var="entity" value="#{planBean.entities}"
+                             reflow="true" styleClass="entity-table"
+                             selection="#{planBean.selectedEntities}" rowKey="#{entity.dny}" paginator="true"
+                             rows="10" rowSelectMode="add" paginatorPosition="bottom">
+                    <f:facet name="header">
+                        <div class="entity-table-header">
+                            <span style="font-weight: bold">BUSCAR AFILIADO </span>
+
+                            <span class="filter-container ui-input-icon-left">
                         <i class="pi pi-search"></i>
                         <p:inputText id="globalFilter" onkeyup="PF('dtEntities').filter()" placeholder="Buscar"/>
                     </span>
-<ui:composition template="/WEB-INF/template/plantilla.xhtml">
-<ui:define name="content">
+                        </div>
+                    </f:facet>
+                    <!-- COLUMNAS DE LOS ATRIBUTOS QUE DESEO MOSTRAR EN LA TABLA -->
+                    <p:column headerText="AFILIADO" filterBy="#{entity.afiliado.nombre}" filterStyle="display: none" >
+                        <h:outputText value="#{entity.afiliado.nombre}"/>
+                    </p:column>
+                    <p:column headerText="COPAGO" filterBy="#{entity.copago}" filterStyle="display: none" >
+                        <h:outputText value="#{entity.copago}"/>
+                    </p:column>
+                    <p:column headerText="PLAN" filterBy="#{entity.id}" filterStyle="display: none" >
+                        <h:outputText value="#{entity.id}"/>
+                    </p:column>
+                    <p:column headerText="MENSUALIDAD" filterBy="#{entity.mensualidad}" filterStyle="display: none" >
+                        <h:outputText value="#{entity.mensualidad}"/>
+                    </p:column>
+                     <p:column exportable="false">
 
-<f:view>
-    <span style="font-weight: bold">CONSULTAR</span>
+                    </p:column>
+
+                </p:dataTable>
+
+                <ui:include src="__form.xhtml" />
 
 
-
-
-</f:view>
-
-    <!-- COLUMNAS DE LOS ATRIBUTOS QUE DESEO MOSTRAR EN LA TABLA -->
-    <p:column headerText="CONSULTAR"  >
-        <h:outputText value="#{entity.id2}"/>
-    </p:column>
-    <p:column headerText="MENSUALIDAD"  >
-        <h:outputText value="#{entity.mensualidad2}"/>
-    </p:column>
-    <p:column headerText="COPAGO"  >
-        <h:outputText value="#{entity.copago2}"/>
-    </p:column>
-    <p:column headerText="AFILIADO"  >
-        <h:outputText value="#{entity.afiliado2.nombre}"/>
-    </p:column>
-    <p:column headerText="MASCOTAS"  >
-        <h:outputText value="#{entity.mascota2.nombre}"/>
-    </p:column>
-
-</ui:define>
+            </h:form>
+        </f:view>
+    </ui:define>
 </ui:composition>
-
 </html>

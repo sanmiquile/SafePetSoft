@@ -38,16 +38,16 @@
                 </div>
             </f:facet>
             <!-- COLUMNAS DE LOS ATRIBUTOS QUE DESEO MOSTRAR EN LA TABLA -->
-            <p:column headerText="PLAN"  >
+            <p:column headerText="PLAN" filterBy="#{entity.id}" filterStyle="display: none" >
                 <h:outputText value="#{entity.id}"/>
             </p:column>
-            <p:column headerText="MENSUALIDAD"  >
+            <p:column headerText="MENSUALIDAD" filterBy="#{entity.mensualidad}" filterStyle="display: none" >
                 <h:outputText value="#{entity.mensualidad}"/>
             </p:column>
-            <p:column headerText="COPAGO"  >
+            <p:column headerText="COPAGO" filterBy="#{entity.copago}" filterStyle="display: none" >
                 <h:outputText value="#{entity.copago}"/>
             </p:column>
-            <p:column headerText="AFILIADO"  >
+            <p:column headerText="AFILIADO" filterBy="#{entity.afiliado.nombre}" filterStyle="display: none" >
                 <h:outputText value="#{entity.afiliado.nombre}"/>
             </p:column>
             <p:column headerText="MASCOTAS"  >
@@ -94,6 +94,7 @@
                 oncomplete="PF('manageEntityDialog2').show()"
                 styleClass="edit-button rounded-button ui-button-success" process="@this">
                 <f:setPropertyActionListener value="#{entity}" target="#{planBean.selectedEntity}"/>
+
                 <p:resetInput target=":form:manage-entity-content2"/>
             </p:commandButton>
             </p:column>
