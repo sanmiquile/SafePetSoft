@@ -5,7 +5,10 @@ import co.edu.uniquindio.software.safepet.logica.PlanBO;
 import co.edu.uniquindio.software.safepet.persistencia.entidades.Mascota;
 import co.edu.uniquindio.software.safepet.persistencia.entidades.Plan;
 import co.edu.uniquindio.software.safepet.persistencia.entidades.Servicio;
+import org.primefaces.model.DefaultStreamedContent;
+import org.primefaces.model.StreamedContent;
 
+import javax.faces.context.FacesContext;
 import javax.faces.event.AjaxBehaviorEvent;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
@@ -27,9 +30,11 @@ public class PlanBean extends PrimeFacesCrudBean<Plan,Integer, PlanBO> {
 
     private List<Servicio> servicios;
 
+
     public List<Servicio> getServicios() {
         return servicios;
     }
+
 
     public void setServicios(List<Servicio> servicios) {
         this.servicios = servicios;
@@ -99,4 +104,6 @@ public class PlanBean extends PrimeFacesCrudBean<Plan,Integer, PlanBO> {
     public void setMascota(Mascota mascota) {
         this.mascota = mascota;
     }
+
+
 }
