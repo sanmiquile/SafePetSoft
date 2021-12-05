@@ -6,6 +6,8 @@
     <display-name>safepet</display-name>
     <welcome-file-list>
         <welcome-file>autenticacion/index.xhtml</welcome-file>
+
+
     </welcome-file-list>
 
     <servlet>
