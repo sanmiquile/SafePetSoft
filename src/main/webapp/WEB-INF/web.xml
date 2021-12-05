@@ -6,6 +6,8 @@
     <display-name>safepet</display-name>
     <welcome-file-list>
         <welcome-file>autenticacion/index.xhtml</welcome-file>
+
+
     </welcome-file-list>
 
     <servlet>
@@ -42,6 +44,7 @@
             <web-resource-name>protegido</web-resource-name>
             <url-pattern>/welcome/*</url-pattern>
             <url-pattern>/planes/*</url-pattern>
+            <url-pattern>/simulacion/*</url-pattern>
             <http-method>GET</http-method>
             <http-method>POST</http-method>
         </web-resource-collection>

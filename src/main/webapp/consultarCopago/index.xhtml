@@ -28,6 +28,9 @@
                         </div>
                     </f:facet>
                     <!-- COLUMNAS DE LOS ATRIBUTOS QUE DESEO MOSTRAR EN LA TABLA -->
+                    <p:column headerText="ID AFILIADO" filterBy="#{entity.afiliado.id}" filterStyle="display: none" >
+                        <h:outputText value="#{entity.afiliado.id}"/>
+                    </p:column>
                     <p:column headerText="AFILIADO" filterBy="#{entity.afiliado.nombre}" filterStyle="display: none" >
                         <h:outputText value="#{entity.afiliado.nombre}"/>
                     </p:column>
@@ -47,6 +50,7 @@
                 </p:dataTable>
 
                 <ui:include src="__form.xhtml" />
+
 
 
             </h:form>
