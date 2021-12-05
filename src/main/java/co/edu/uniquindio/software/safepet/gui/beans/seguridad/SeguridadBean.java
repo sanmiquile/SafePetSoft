@@ -24,6 +24,9 @@ import static javax.security.enterprise.authentication.mechanism.http.Authentica
 @Named
 @SessionScoped
 public class SeguridadBean extends AbstracBean {
+
+
+
     private Logger LOG = Logger.getLogger(SeguridadBean.class.getName());
     private LoginDTO loginDTO;
 
