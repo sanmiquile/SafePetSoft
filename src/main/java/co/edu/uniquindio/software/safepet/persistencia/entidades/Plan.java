@@ -7,7 +7,8 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
-public class Plan implements Serializable {
+//EntidadGenerica<Integer>
+public class Plan implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -79,4 +80,5 @@ public class Plan implements Serializable {
     public int hashCode() {
         return Objects.hash(getId());
     }
+
 }

@@ -11,12 +11,12 @@
 
     <p:dialog id="dialog" widgetVar="manageEntityDialog">
         <p:outputPanel id="manage-entity-content" class="ui-fluid">
-            <p:outputPanel rendered="#{not empty planBean.selectedEntity}">
+            <p:outputPanel rendered="#{not empty planBean2.selectedEntity}">
 
 
                 <div class="p-field">
                     <p:outputLabel for="afiliado">AFILIADO</p:outputLabel>
-                    <p:selectOneMenu id="afiliado" value="#{planBean.selectedEntity.afiliado}" converter="#{afiliadoConverter}"
+                    <p:selectOneMenu id="afiliado" value="#{planBean2.selectedEntity.afiliado}" converter="#{afiliadoConverter}"
                                      panelStyle="width:180px" effect="fade" var="c"
                                      filter="true" filterMatchMode="startsWith">
 
@@ -41,10 +41,10 @@
 
                 <div class="p-field">
                     <p:outputLabel for="servicios">SERVICIO</p:outputLabel>
-                    <p:selectCheckboxMenu id="servicios" value="#{planBean.servicios}" label="Servicios" style="min-width: 15rem"
+                    <p:selectCheckboxMenu id="servicios" value="#{planBean2.servicios}" label="Servicios" style="min-width: 15rem"
                                           multiple="true" filter="true" filterMatchMode="startsWith" panelStyle="width: 30rem" scrollHeight="250" converter="servicioConverter">
 
-                        <p:ajax event="change" listener="#{planBean.subjectSelectionChanged}" update="mensualidad copago" />
+                        <p:ajax event="change" listener="#{planBean2.subjectSelectionChanged}" update="mensualidad copago" />
 
 
                         <f:selectItems value="#{servicioBean.entities}" var="servicio" itemLabel="#{servicio.nombre} - #{servicio.valor}" itemValue="#{servicio}" />
@@ -52,12 +52,12 @@
                 </div>
                 <div class="p-field">
                     <p:outputLabel for="copago">Copago</p:outputLabel>
-                    <p:inputText id="copago" value="#{planBean.selectedEntity.copago}" readonly="true" />
+                    <p:inputText id="copago" value="#{planBean2.selectedEntity.copago}" readonly="true" />
                 </div>
 
                 <div class="p-field">
                     <p:outputLabel for="mensualidad">Mensualidad</p:outputLabel>
-                    <p:inputText id="mensualidad" value="#{planBean.selectedEntity.mensualidad}" readonly="true" />
+                    <p:inputText id="mensualidad" value="#{planBean2.selectedEntity.mensualidad}" readonly="true" />
                 </div>
                 <div class="p-field">
                 <p:outputLabel for="servicios">ALGO</p:outputLabel>
@@ -69,7 +69,7 @@
         </p:outputPanel>
 
         <f:facet name="footer">
-            <p:commandButton value="Guardar" icon="pi pi-check" actionListener="#{planBean.save}"
+            <p:commandButton value="Guardar" icon="pi pi-check" actionListener="#{planBean2.save}"
                              update="manage-entity-content" process="manage-entity-content @this"/>
             <p:commandButton value="Cancel" icon="pi pi-times" onclick="PF('manageEntityDialog').hide()"
                              class="ui-button-secondary"/>

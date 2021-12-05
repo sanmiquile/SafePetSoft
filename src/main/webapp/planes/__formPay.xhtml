@@ -41,7 +41,7 @@
                 <br /><br />
                     <div class="p-field">
                     <p:outputLabel for="bancos">SELECCIONAR BANCO</p:outputLabel>
-                    <p:selectOneMenu id="bancos" value="#{selectorView.bancos}" label="Bancos" style="min-width: 15rem"
+                    <p:selectOneMenu id="bancos" label="Bancos" style="min-width: 15rem"
                                           multiple="False" filter="true" filterMatchMode="startsWith" panelStyle="width: 30rem" scrollHeight="250" >
 
                         <f:selectItem itemLabel="Seleccione uno" itemValue="" noSelectionOption="true"/>
@@ -60,7 +60,7 @@
         </p:outputPanel>
 
         <f:facet name="footer">
-            <p:commandButton value="Pagar" icon="pi pi-dollar" actionListener="#{planBean.save}"
+            <p:commandButton value="Pagar" icon="pi pi-dollar" actionListener="#{planBean.save()}"
                              update="manage-entity-content" process="manage-entity-content @this"/>
             <p:commandButton value="Cancel" icon="pi pi-times" onclick="PF('manageEntityDialog').hide()"
                              class="ui-button-secondary"/>

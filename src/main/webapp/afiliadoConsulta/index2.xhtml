@@ -13,9 +13,9 @@
             <h:form id="form">
                 <p:growl id="messages" />
 
-                <p:dataTable id="dt-entities" widgetVar="dtEntities" var="entity" value="#{planBean.entities}"
+                <p:dataTable id="dt-entities" widgetVar="dtEntities" var="entity" value="#{planBean2.entities}"
                              reflow="true" styleClass="entity-table"
-                             selection="#{planBean.selectedEntities}" rowKey="#{entity.dny}" paginator="true"
+                             selection="#{planBean2.selectedEntities}" rowKey="#{entity.dny}" paginator="true"
                              rows="10" rowSelectMode="add" paginatorPosition="bottom">
                     <f:facet name="header">
                         <div class="entity-table-header">
@@ -37,26 +37,7 @@
                     <p:column headerText="COPAGO" filterBy="#{entity.copago}" filterStyle="display: none" >
                         <h:outputText value="#{entity.copago}"/>
                     </p:column>
-                      <p:column headerText="MASCOTAS" >
-
-                      <p:repeat value="#{entity.mascotas}" var="mascota">
-                            <p:panelGrid >
-                                <p:row>
-                                    <p:column>
-                                        <h:outputText value="#{mascota.nombre}" />
-                                    </p:column>
-                                    <p:column style="width: 70px">
-
-
-                             </p:column>
-                                </p:row>
-                            </p:panelGrid>
-                        </p:repeat>
-                    </p:column>
-
                 </p:dataTable>
-
-                <ui:include src="__formMascota.xhtml" />
                 <ui:include src="__form.xhtml" />
 
 

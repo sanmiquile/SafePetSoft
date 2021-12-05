@@ -2,6 +2,7 @@ package co.edu.uniquindio.software.safepet.gui.beans.seguridad;
 
 import co.edu.uniquindio.software.safepet.gui.beans.AbstracBean;
 import co.edu.uniquindio.software.safepet.logica.security.LoginDTO;
+import co.edu.uniquindio.software.safepet.persistencia.entidades.Afiliado;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.SessionScoped;
@@ -25,7 +26,7 @@ import static javax.security.enterprise.authentication.mechanism.http.Authentica
 @SessionScoped
 public class SeguridadBean extends AbstracBean {
 
-
+    private Afiliado afiliado;
 
     private Logger LOG = Logger.getLogger(SeguridadBean.class.getName());
     private LoginDTO loginDTO;
