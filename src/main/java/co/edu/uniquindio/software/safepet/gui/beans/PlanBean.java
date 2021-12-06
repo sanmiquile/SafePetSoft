@@ -63,26 +63,38 @@ public class PlanBean extends PrimeFacesCrudBean<Plan,Integer, PlanBO> {
     }
 
     public void subjectSelectionChanged(final AjaxBehaviorEvent event)  {
+        // double vr = calcularMensualidadPlan();
+        //    selectedEntity.setMensualidad(vr);
+        //calcularCopago();
+        double valor = 0;
+        double cont = 0;
 
-        double vr = calcularMensualidadPlan();
-    /*    if( servicios != null ){
-            double valor = 0;
-            for (Servicio a:servicios) {
-                valor += a.getValor();
-            }
-            */
-            selectedEntity.setMensualidad(vr);
+        for (Servicio a:servicios) {
+            valor += a.getValor();
 
-            if( servicios.size() <= 2 ){
-                selectedEntity.setCopago(10000);
-            } else if( servicios.size() <= 6 ){
-                selectedEntity.setCopago(5000);
-            } else {
-                selectedEntity.setCopago(2000);
-            }
-       // }
         }
-
+        for(Mascota a: selectedEntity.getMascotas()){
+            if(a.getNombre() != null){
+                cont +=1;
+            }
+        }
+        if( cont == 1 ){
+            selectedEntity.setMensualidad(valor);
+        } else if( cont == 2 ){
+            selectedEntity.setMensualidad(valor * 1.25);
+        } else {
+            if(cont == 3){
+                selectedEntity.setMensualidad(valor * 1.35);
+            }
+        }
+        if( servicios.size() <= 2 ){
+            selectedEntity.setCopago(10000);
+        } else if( servicios.size() <= 6 ){
+            selectedEntity.setCopago(5000);
+        } else {
+            selectedEntity.setCopago(2000);
+        }
+    }
         public double calcularMensualidadPlan(){
             double valor = 0.0d;
             int cont = 0;
@@ -104,25 +116,18 @@ public class PlanBean extends PrimeFacesCrudBean<Plan,Integer, PlanBO> {
                     selectedEntity.setMensualidad(valor * 1.35);
                 }
             }
-            cont = 0;
             return valor;
-
         }
-
-
     public void crearMascota(){
         mascota.setPlan(selectedEntity);
         selectedEntity.getMascotas().add(
                 mascotaBO.create(mascota)
         );
-        calcularMensualidadPlan();
     }
-
     public void eliminarMascota() {
         mascotaBO.delete(mascota);
 //        mostrarMensajeGeneral(getMessage(MessageConstants.OPERACION_FINALIZADA));
         selectedEntity.getMascotas().remove(mascota);
-        calcularMensualidadPlan();
     }
 
     public void newMascota(){
