@@ -13,7 +13,7 @@ import javax.annotation.sql.DataSourceDefinition;
 		serverName = "localhost", //
 		portNumber = 3306, //
 		user = "root", //
-		password = "Haggard9774676D$", //
+		password = "root", //
 		databaseName = "safepet", //
 		properties = { //
 		"useSSL=false", "useInformationSchema=true", "nullCatalogMeansCurrent=true", "nullNamePatternMatchesAll=false" //

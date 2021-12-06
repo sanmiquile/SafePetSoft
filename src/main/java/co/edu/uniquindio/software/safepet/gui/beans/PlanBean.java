@@ -64,11 +64,9 @@ public class PlanBean extends PrimeFacesCrudBean<Plan,Integer, PlanBO> {
     }
 
     public void subjectSelectionChanged(final AjaxBehaviorEvent event)  {
-        // double vr = calcularMensualidadPlan();
-        //    selectedEntity.setMensualidad(vr);
-        //calcularCopago();
+
         double valor = 0;
-        double cont = 0;
+        int cont = 0;
 
         for (Servicio a:servicios) {
             valor += a.getValor();
@@ -99,7 +97,8 @@ public class PlanBean extends PrimeFacesCrudBean<Plan,Integer, PlanBO> {
         public double calcularMensualidadPlan(){
             double valor = 0.0d;
             int cont = 0;
-            Mascota mascota;
+
+
             for (Servicio a:servicios) {
                 valor += a.getValor();
             }
